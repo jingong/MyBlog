@@ -1,0 +1,24 @@
+#info1{
+    width:400px;
+    height:350px;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    margin-left:-240px;
+    margin-top:-210px;
+    border:1px;
+    background-color:white;
+    align:center;
+
+
+}
+#info2{
+    width:400px;
+    height:160px;
+    position:relative;
+    left:50%;
+    top:50%;
+    margin-left:-150px;
+    margin-top:-150px;
+
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <package name="visitor" extends="struts-default" namespace="/">
+        <action name="loginAction" class="cn.edu.ldu.action.visitor.LoginRegisterAction" method="login">
+            <result name="success">/visitor/index.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="registerAction" class="cn.edu.ldu.action.visitor.LoginRegisterAction" method="register">
+            <result name="success">/visitor/login.jsp</result>
+            <result name="error">/visitor/error.jsp</result>
+        </action>
+    </package>
+    <package name="user" extends="struts-default" namespace="/">
+        <action name="userLoginAction" class="cn.edu.ldu.action.user.LoginRegisterAction" method="login">
+            <result name="success">/user/index.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="updateUserInfo" class="cn.edu.ldu.action.user.UpdateInfoAction" method="update">
+            <result name="success">/user/info/myinfo.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="updatePasswordAction" class="cn.edu.ldu.action.user.UpdatePasswordAction" method="changePass">
+            <result name="success">/user/home.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="addBlogAction" class="cn.edu.ldu.action.user.AddBlogAction" method="addBlog">
+            <result name="success">/user/blog/lookBlog.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="lookBlogAction" class="cn.edu.ldu.action.user.LookBlogAction">
+            <result name="success">/user/blog/lookBlog.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="getUpdateBlogAction" class="cn.edu.ldu.action.user.UpdateBlogAction" method="getUpdateBlog">
+            <result name="success">/user/blog/updateBlog.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="updateBlogAction" class="cn.edu.ldu.action.user.UpdateBlogAction">
+            <result name="success">/user/blog/lookBlog.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="deleteBlogAction" class="cn.edu.ldu.action.user.DeleteBlogAction">
+            <result name="success">/user/blog/lookBlog.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="fuzzyLookBlogAction" class="cn.edu.ldu.action.user.LookBlogAction" method="fuzzyQueryBlog">
+            <result name="success">/user/blog/lookBlog.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="lookCommentAction" class="cn.edu.ldu.action.user.LookCommentAction" method="lookByPage">
+            <result name="success">/user/comment/lookComment.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="fuzzyLookCommentAction" class="cn.edu.ldu.action.user.LookCommentAction" method="fuzzyQuery">
+            <result name="success">/user/comment/lookComment.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="deleteCommentAction" class="cn.edu.ldu.action.user.LookCommentAction" method="deleteComments">
+            <result name="success">/user/comment/lookComment.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="getBlogCommentsAction" class="cn.edu.ldu.action.user.LookCommentAction" method="lookComments">
+            <result name="success">/user/comment/comments.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+    </package>
+</struts>
