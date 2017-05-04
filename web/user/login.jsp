@@ -82,7 +82,7 @@
             var errorCount = 0;
 
             form.on('submit(login)', function (data) {
-				window.location.href = "..common/page/index.html";
+				window.location.href = "..common/page/bloglist.jsp";
                 /*if (errorCount > 5) {
                     layer.open({
                         title: '<img src="' + location.origin + '/Plugins/layui/images/face/7.gif" alt="[害羞]">输入验证码',

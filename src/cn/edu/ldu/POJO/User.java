@@ -4,13 +4,14 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  * Created by jiajingong on 2017/4/16.
  */
 @Entity
-public class User {
+public class User implements Serializable{
     private int id;
     private String userName;
     private String password;
@@ -19,6 +20,10 @@ public class User {
     private String description;
     private Date birth;
     private String address;
+    private String major;
+    private String position;
+    private String school;
+    private String logo;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -126,5 +131,45 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Basic
+    @Column(name = "major", nullable = true, length = 30)
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    @Basic
+    @Column(name = "position", nullable = true, length = 30)
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    @Basic
+    @Column(name = "school", nullable = true, length = 30)
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    @Basic
+    @Column(name = "logo", nullable = true, length = 255)
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 }

@@ -8,7 +8,19 @@
         </action>
         <action name="registerAction" class="cn.edu.ldu.action.visitor.LoginRegisterAction" method="register">
             <result name="success">/visitor/login.jsp</result>
-            <result name="error">/visitor/error.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="lookBlogByPageAction" class="cn.edu.ldu.action.visitor.LookBlogAction" method="lookBlogsByPage">
+            <result name="success">/visitor/blog/bloglist.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="lookBlogByType" class="cn.edu.ldu.action.visitor.LookBlogAction" method="lookBlogByType">
+            <result name="success">/visitor/blog/bloglist.jsp</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
+        <action name="lookCommentsAction" class="cn.edu.ldu.action.visitor.LookBlogAction" method="lookCommentsById">
+            <result name="success">/visitor/blog/blogcomments.jsp</result>
+            <result name="error">/error/error.jsp</result>
         </action>
     </package>
     <package name="user" extends="struts-default" namespace="/">
@@ -64,5 +76,6 @@
             <result name="success">/user/comment/comments.jsp</result>
             <result name="error">/error/error.jsp</result>
         </action>
+
     </package>
 </struts>

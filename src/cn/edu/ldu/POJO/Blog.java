@@ -89,9 +89,7 @@ public class Blog {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Blog blog = (Blog) o;
-
         if (id != blog.id) return false;
         if (userName != null ? !userName.equals(blog.userName) : blog.userName != null) return false;
         if (title != null ? !title.equals(blog.title) : blog.title != null) return false;

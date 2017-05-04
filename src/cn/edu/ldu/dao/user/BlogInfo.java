@@ -38,6 +38,29 @@ public class BlogInfo {
         return mess;
     }
     //得到总条数
+    public int getAllRowCountVis(String hql,String userName,int tid)
+    {
+        session = HibernateSessionFactory.getSession();
+        int allRows = 0;
+        try
+        {
+            transaction = session.beginTransaction();
+            query = session.createQuery(hql);
+            query.setParameter("userName",userName);
+            query.setParameter("tid",tid);
+            allRows = query.list().size();
+            transaction.commit();
+
+        }
+        catch (Exception e)
+        {
+            if(transaction != null)
+                transaction.rollback();
+            e.printStackTrace();
+        }
+        return allRows;
+    }
+    //得到总条数
     public int getAllRowCount(String hql)
     {
         session = HibernateSessionFactory.getSession();
@@ -77,8 +100,7 @@ public class BlogInfo {
             e.printStackTrace();
         }
         return allRows;
-    }
-    //使用hibernate提供的分页功能，得到分页显示的数据
+    }//使用hibernate提供的分页功能，得到分页显示的数据
     public List<Blog> queryByPage(String hql,int offset,int pageSize)
     {
         session = HibernateSessionFactory.getSession();
@@ -87,6 +109,29 @@ public class BlogInfo {
         {
             transaction = session.beginTransaction();
             query = session.createQuery(hql).setFirstResult(offset).setMaxResults(pageSize);
+            list = query.list();
+            transaction.commit();
+        }
+        catch (Exception e)
+        {
+            if(transaction != null)
+                transaction.rollback();
+            e.printStackTrace();
+        }
+        return list;
+    }
+    //使用hibernate提供的分页功能，得到分页显示的数据
+    public List<Blog> queryByPageVis(String hql,int offset,int pageSize,String userName,int tid)
+    {
+        session = HibernateSessionFactory.getSession();
+        List<Blog> list = null;
+        try
+        {
+            transaction = session.beginTransaction();
+            query = session.createQuery(hql);
+            query.setParameter("userName",userName);
+            query.setParameter("tid",tid);
+            query.setFirstResult(offset).setMaxResults(pageSize);
             list = query.list();
             transaction.commit();
         }
@@ -123,7 +168,7 @@ public class BlogInfo {
         return mess;
     }
     //得到要更新的博客
-    public Blog getUpdateBlog(int id){
+    public Blog getBlog(int id){
         session = HibernateSessionFactory.getSession();
         try {
             transaction = session.beginTransaction();

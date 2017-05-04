@@ -99,4 +99,27 @@ public class CommentInfo {
         }
         return list;
     }
+
+    public List<Comment> selectComments(int id)
+    {
+        session = HibernateSessionFactory.getSession();
+        List<Comment> list = null;
+        try
+        {
+            String hql = "from Comment as c where c.blog.id=:id";
+            transaction = session.beginTransaction();
+            query = session.createQuery(hql);
+            query.setParameter("id",id);
+            list = query.list();
+            transaction.commit();
+            return list;
+        }
+        catch (Exception e)
+        {
+            if(transaction != null)
+                transaction.rollback();
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

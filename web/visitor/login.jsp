@@ -1,21 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%--lang="en"--%>
-	<%--<meta charset="utf-8"/>--%>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
 	<style>body{padding-top: 60px;}</style>
-	
     <link href="../bootstrap3/css/bootstrap.css" rel="stylesheet" />
- 
 	<link href="../css/login-register.css" rel="stylesheet" />
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-	
 	<script src="../jquery/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="../bootstrap3/js/bootstrap.js" type="text/javascript"></script>
 	<script src="../js/login-register.js" type="text/javascript"></script>
-
 </head>
 <body>
     <div class="container">

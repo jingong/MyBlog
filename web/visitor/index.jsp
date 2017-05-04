@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 <body class="loading-process">
 <div class="loading">
     <div class="loading-circle"></div>
-    <div class="loading-avatar"><img src="images/avatar@2x.jpg" alt="" width="100" height="100"></div>
+    <div class="loading-avatar"><img src="../upload/jia/<s:property value="#session.user.logo"/>" alt="" width="100" height="100"></div>
     <div class="loading-info">正在努力加载中...</div>
 </div>
 <div class="section-header">
@@ -33,7 +34,7 @@
 <div class="section-wrap section-fristpage" data-slide="1"  >
     <div class="section">
         <div class="section-content">
-            <p class="fade fade1">Hi，我是 jia</p>
+            <p class="fade fade1">Hi，我是 <s:property value="#session.user.name"/></p>
             <p class="fade fade2">欢迎光临我的博客！</p>
             <p class="fade fade3">想了解更多，往下滚动哦 ^_^</p>
         </div>
@@ -45,15 +46,15 @@
         <div class="about-content clearfix section-content">
             <div class="introli">
                 <span class="left_icon"><img class="bio-text bio-icon-1" src="images/bio-icon-1.png" data-stellar-ratio="0.7" ></span>
-                <span class="right_content "><a class="bio-text bio-text-2" data-stellar-ratio="0.7" style="font-family: 'Comic Sans MS';font-size: 3em;color: #0C0C0C";>我是一名前端工程师</a></span>
+                <span class="right_content "><a class="bio-text bio-text-2" data-stellar-ratio="0.7" style="font-family: 'Comic Sans MS';font-size: 3em;color: #0C0C0C";>我是一名<s:property value="#session.user.position"/></a></span>
             </div>
             <div class="introli">
                 <span class="left_icon"><img class="bio-text bio-icon-2" src="images/bio-icon-2.png" data-stellar-ratio="0.7" ></span>
-                <span class="right_content"><a class="bio-text bio-text-2" data-stellar-ratio="0.7" style="font-family: 'Comic Sans MS';font-size: 3em;color: #0C0C0C";>目前就读于鲁东大学</a></span>
+                <span class="right_content"><a class="bio-text bio-text-2" data-stellar-ratio="0.7" style="font-family: 'Comic Sans MS';font-size: 3em;color: #0C0C0C";>目前就读于<s:property value="#session.user.school"/></a></span>
             </div>
             <div class="introli">
                 <span class="left_icon"><img class="bio-text bio-icon-3" src="images/bio-icon-3.png" data-stellar-ratio="0.7" ></span>
-                <span class="right_content"><a class="bio-text bio-text-2" data-stellar-ratio="0.7" style="font-family: 'Comic Sans MS';font-size: 3em;color: #0C0C0C";>我是一名理工男，Major in 软件工程</a></span>
+                <span class="right_content"><a class="bio-text bio-text-2" data-stellar-ratio="0.7" style="font-family: 'Comic Sans MS';font-size: 3em;color: #0C0C0C";>我是一名理工男，Major in <s:property value="#session.user.major"/></a></span>
             </div>
 
         </div>
@@ -66,58 +67,20 @@
         <div class="works-content section-content">
             <h1>前端作品</h1>
             <div class="works-list clearfix">
-                <div class="works-item first fade fade1">
-                    <a href="#" target="_blank">
-                        <img src="images/works/yizaojia.jpg" alt="" width="300" height="180">
-                        <div class="work-info">
-                            <h2>喜欢我做的东西就关注我把！</h2>
-                            <p><strong>开发时间</strong>：2014年3月<br>
-                                <strong>工作详情</strong>：框架设计及前端制作。</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="works-item fade fade2">
-                    <a href="#/" target="_blank">
-                        <img src="images/works/91zaojia.jpg" alt="" width="300" height="180">
-                        <div class="work-info">
-                            <h2>喜欢我做的东西就关注我把！</h2>
-                            <p><strong>开发时间</strong>：2013年10月<br>
-                                <strong>工作详情</strong>：页面设计及前端制作。</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="works-item fade fade3">
-                    <a href="#/" target="_blank">
-                        <img src="images/works/wenku.jpg" alt="" width="300" height="180">
-                        <div class="work-info">
-                            <h2>喜欢我做的东西就关注我把！</h2>
-                            <p><strong>开发时间</strong>：2013年12月<br>
-                                <strong>工作详情</strong>：页面设计及前端绑定和制作。</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="works-item first fade fade4">
-                    <a href="#" target="_blank">
-                        <img src="images/works/shinedeliver.jpg" alt="" width="300" height="180">
-                        <div class="work-info">
-                            <h2>喜欢我做的东西就关注我把！</h2>
-                            <p><strong>开发时间</strong>：2012年11月<br>
-                                <strong>工作详情</strong>：独立开发和制作。</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="works-item fade fade2">
-                    <a>
-                        <img src="images/works/wxshop.jpg" alt="" width="300" height="180">
-                        <div class="work-info">
-                            <h2>喜欢我做的东西就关注我把！</h2>
-                            <p><strong>开发时间</strong>：2014年05月<br>
-                                <strong>工作详情</strong>：前端页面开发及绑定。</p>
-                        </div>
-                    </a>
-                </div>
+                <s:iterator value="#session.bloglists" begin="0" end="5">
+                    <div class="works-item first fade fade2">
+                        <a href="lookCommentsAction?id=<s:property value="id"/>" target="_blank">
+                            <img src="../upload/jia/<s:property value="picture"/>" alt="" width="300" height="180">
+                            <div class="work-info">
+                                <h2><s:property value="title"/></h2>
+                                <p><strong>创建时间</strong>：<s:property value="time"/><br>
+                                    <strong>博客类型</strong>：<s:property value="type.type"/></p>
+                            </div>
+                        </a>
+                    </div>
+                </s:iterator>
             </div>
-            <a class="more-link" href="page/product">查看更多</a>
+            <a class="more-link" href="lookBlogByPageAction?page=1">查看更多</a>
         </div>
         <a class="button2 scroll-tip fade fade4" data-slide="4" title="">向下滚动</a>
     </div>
@@ -127,17 +90,9 @@
         <div class="skill-content section-content">
             <h1>相关技能</h1>
             <ul>
-                <li class="fade fade1">熟练掌握语义化的 HTML 和具有兼容性的 CSS 模式，熟练手写符合 W3C 标准的结构和代码。</li>
-                <li class="fade fade3">对 可用性、可访问性、前端性能优化、最优实践 等有一定的了解和实践。</li>
-                <li class="fade fade2">对 HTML5 和 CSS3 有一定了解。</li>
-                <li class="fade fade4">熟练掌握 ST2 、Emmet、Sass 等等前端开发和团队协作工具。</li>
-                <li class="fade fade4">熟练掌握 jQuery，实现日常需要的交互效果。</li>
-                <li class="fade fade3">熟悉EXTJS，Nodejs，MySQl，有一定 PHP 后端相关知识。</li>
-                <li class="fade fade2">了解 Ajax 工作原理和实现方法。</li>
-                <li class="fade fade2">对前端canvas，svg有一定了解。</li>
-                <li class="fade fade1">了解手机前端开发jquerymobile，zeptojs及angularjs等。</li>
-                <li class="fade fade4">服务器使用阿里云ECS，对 Linux 有一定了解。</li>
-                <li class="fade fade2">喜欢接触新事物，有一定的自学能力。</li>
+                <s:iterator value="#session.slist">
+                    <li class="fade fade1"><s:property value="skill"/></li>
+                </s:iterator>
             </ul>
         </div>
     </div>
@@ -163,7 +118,7 @@
             </div>
             <div class="right fade fade3">
                 <h2>项目外包</h2>
-                <p>如果你有前端相关的需求，可以联系我做外包，目前我主要做：</p>
+                <p>如果你有前端相关的需求，可以联系我做外包，目前我主要做：avatar</p>
                 <ul>
                     <li>网站布局设计及制作，网站页面制作。</li>
                     <li>根据需求，对网站前端进行修改和优化，或者转响应式处理。</li>

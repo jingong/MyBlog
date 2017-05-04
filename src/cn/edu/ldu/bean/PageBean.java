@@ -13,6 +13,7 @@ public class PageBean
     private List<Blog> list; //通过hql从数据库分页查询出来的list集合
     private List<?> clist;
     private List<Comment> clist1;
+    private List<Blog> bloglist;//客户端用于查看博客的list
     private int allRows; //总记录数
 
     private int totalPage; //总页数
@@ -20,6 +21,14 @@ public class PageBean
     private int currentPage; //当前页
 
     public PageBean() {
+    }
+
+    public List<Blog> getBloglist() {
+        return bloglist;
+    }
+
+    public void setBloglist(List<Blog> bloglist) {
+        this.bloglist = bloglist;
     }
 
     public List<Comment> getClist1() {
