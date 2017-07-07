@@ -15,53 +15,39 @@ public class PageBean
     private List<Comment> clist1;
     private List<Blog> bloglist;//客户端用于查看博客的list
     private int allRows; //总记录数
-
     private int totalPage; //总页数
-
     private int currentPage; //当前页
-
-    public PageBean() {
-    }
-
+    public PageBean() {}
     public List<Blog> getBloglist() {
         return bloglist;
     }
-
     public void setBloglist(List<Blog> bloglist) {
         this.bloglist = bloglist;
     }
-
     public List<Comment> getClist1() {
         return clist1;
     }
-
     public void setClist1(List<Comment> clist1) {
         this.clist1 = clist1;
     }
-
     public List<?> getClist() {
         return clist;
     }
-
     public void setClist(List<?> clist) {
         this.clist = clist;
     }
-
     public List<Blog> getList()
     {
         return list;
     }
-
     public void setList(List<Blog> list)
     {
         this.list = list;
     }
-
     public int getAllRows()
     {
         return allRows;
     }
-
     public void setAllRows(int allRows)
     {
         this.allRows = allRows;

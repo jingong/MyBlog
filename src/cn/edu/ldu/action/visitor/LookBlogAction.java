@@ -2,11 +2,16 @@ package cn.edu.ldu.action.visitor;
 
 import cn.edu.ldu.POJO.Blog;
 import cn.edu.ldu.POJO.Comment;
+import cn.edu.ldu.POJO.User;
+import cn.edu.ldu.POJO.Visitor;
 import cn.edu.ldu.bean.PageBean;
 import cn.edu.ldu.dao.user.BlogInfo;
 import cn.edu.ldu.dao.user.CommentInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
+
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -19,8 +24,17 @@ public class LookBlogAction extends ActionSupport implements SessionAware {
     private String mess = "error";
     private int tid;
     private int id;//此id是用于查看查看当前id下的所有评论用的
-    private List<Comment> clist;//
+    private List<Comment> clist;//存放当前博客的所有评论
     private Blog blog;//存放当前查看的博客的信息
+    private String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public Blog getBlog() {
         return blog;
@@ -85,12 +99,13 @@ public class LookBlogAction extends ActionSupport implements SessionAware {
         }
         return mess;
     }
-
+    //查看评论的同时也查看博客
     public String lookCommentsById(){
         CommentInfo info = new CommentInfo();
         clist = info.selectComments(getId());
         BlogInfo info1 = new BlogInfo();
         blog = info1.getBlog(getId());
+        session.put("blog",blog);
         if (blog != null)
             mess = SUCCESS;
         return mess;
@@ -99,7 +114,7 @@ public class LookBlogAction extends ActionSupport implements SessionAware {
     public PageBean getPageBean(int pageSize, int page)
     {
         PageBean pageBean = new PageBean();
-        String hql = "from Blog as b where b.userName=:userName and b.type.tid=:tid";
+        String hql = "from Blog as b where b.user.userName=:userName and b.type.tid=:tid";
         BlogInfo info = new BlogInfo();
         int allRows = info.getAllRowCountVis(hql,"jia",getTid());
         int totalPage = pageBean.getTotalPages(pageSize, allRows);
@@ -111,5 +126,21 @@ public class LookBlogAction extends ActionSupport implements SessionAware {
         pageBean.setCurrentPage(currentPage);
         pageBean.setTotalPage(totalPage);
         return pageBean;
+    }
+
+    public String commentBlog(){
+        Comment comment = new Comment();
+        comment.setBlog((Blog)session.get("blog"));
+        comment.setVisitor((Visitor)session.get("visitor"));
+        comment.setContent(getContent());
+        comment.setUserName(((User)session.get("user")).getUserName());
+        java.util.Date ud = new java.util.Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String sDate = sdf.format(ud);
+        java.sql.Date sd = java.sql.Date.valueOf(sDate);  //转型成java.sql.Date类型
+        comment.setTime(sd);
+        CommentInfo info = new CommentInfo();
+        mess = info.saveComment(comment);
+        return mess;
     }
 }

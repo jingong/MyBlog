@@ -12,15 +12,16 @@
 </head>
 <body>
     <div class="container">
+
         <div class="row">
-            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+            </div>
             <div class="col-sm-4">
                  <a class="btn big-login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">登录</a>
                  <a class="btn big-register" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">注册</a></div>
             <div class="col-sm-4"></div>
         </div>
-       
-         
+
 		 <div class="modal fade login" id="loginModal">
 		      <div class="modal-dialog login animated">
     		      <div class="modal-content">
@@ -68,6 +69,7 @@
                                 </form>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                     <div class="modal-footer">

@@ -9,7 +9,7 @@ import java.sql.Date;
 @Entity
 public class Blog {
     private int id;
-    private String userName;
+    private User user;
     private String title;
     private String content;
     private String picture;
@@ -35,14 +35,14 @@ public class Blog {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "userName", nullable = true, length = 30)
-    public String getUserName() {
-        return userName;
+    @ManyToOne
+    @JoinColumn
+    public User getUser() {
+        return user;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Basic
@@ -91,19 +91,16 @@ public class Blog {
         if (o == null || getClass() != o.getClass()) return false;
         Blog blog = (Blog) o;
         if (id != blog.id) return false;
-        if (userName != null ? !userName.equals(blog.userName) : blog.userName != null) return false;
         if (title != null ? !title.equals(blog.title) : blog.title != null) return false;
         if (content != null ? !content.equals(blog.content) : blog.content != null) return false;
         if (picture != null ? !picture.equals(blog.picture) : blog.picture != null) return false;
         if (time != null ? !time.equals(blog.time) : blog.time != null) return false;
-
         return true;
     }
 
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (userName != null ? userName.hashCode() : 0);
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (picture != null ? picture.hashCode() : 0);

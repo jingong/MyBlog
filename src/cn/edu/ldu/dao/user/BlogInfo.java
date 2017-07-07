@@ -2,6 +2,7 @@ package cn.edu.ldu.dao.user;
 
 import cn.edu.ldu.POJO.Blog;
 import cn.edu.ldu.POJO.Type;
+import cn.edu.ldu.POJO.User;
 import cn.edu.ldu.factory.HibernateSessionFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -25,6 +26,11 @@ public class BlogInfo {
         session = HibernateSessionFactory.getSession();
         try {
             transaction = session.beginTransaction();
+            String hql = "from User as u where u.userName=:userName";
+            query = session.createQuery(hql);
+            query.setParameter("userName",blog.getUser().getUserName());
+            int id = ((User)query.list().get(0)).getId();
+            blog.getUser().setId(id);
             session.save(blog);
             transaction.commit();
             mess = "success";
@@ -155,7 +161,7 @@ public class BlogInfo {
             b.setTime(blog.getTime());
             b.setTitle(blog.getTitle());
             b.setType(blog.getType());
-            b.setUserName(blog.getUserName());
+            b.setUser(blog.getUser());
             session.update(b);
             transaction.commit();
             mess = "success";

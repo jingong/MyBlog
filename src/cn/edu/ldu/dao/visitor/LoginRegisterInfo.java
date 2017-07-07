@@ -1,9 +1,6 @@
 package cn.edu.ldu.dao.visitor;
 
-import cn.edu.ldu.POJO.Blog;
-import cn.edu.ldu.POJO.Skills;
-import cn.edu.ldu.POJO.User;
-import cn.edu.ldu.POJO.Visitor;
+import cn.edu.ldu.POJO.*;
 import cn.edu.ldu.factory.HibernateSessionFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -23,7 +20,7 @@ public class LoginRegisterInfo {
     public LoginRegisterInfo() {
     }
 
-    public String selectVisitor(Visitor visitor){
+    public Visitor selectVisitor(Visitor visitor){
         String mess = "error";
         session = HibernateSessionFactory.getSession();
         try {
@@ -31,18 +28,17 @@ public class LoginRegisterInfo {
             query = session.createQuery(hqlsql);
             query.setParameter("visName", visitor.getVisName());
             query.setParameter("visPassword",visitor.getVisPassword());
-            List list = query.list();
+            List<Visitor> list = query.list();
             transaction = session.beginTransaction();
             transaction.commit();
-            if (list.size() > 0){
-                mess = "success";
-            }
+            return list.get(0);
         } catch (Exception e) {
             message("selectVisitor.error" + e.getMessage());
             e.printStackTrace();
+            return null;
         }
-        return mess;
     }
+    //得到博主的信息
     public User selectUser(String userName){
         String mess = "error";
         session = HibernateSessionFactory.getSession();
@@ -60,6 +56,7 @@ public class LoginRegisterInfo {
             return null;
         }
     }
+    //得到博主的技能
     public List<Skills> selectSkills(String userName){
         String mess = "error";
         session = HibernateSessionFactory.getSession();
@@ -77,12 +74,31 @@ public class LoginRegisterInfo {
             return null;
         }
     }
+    //得到博主的所有博客类型
+    public List<Type> selectTypes(String userName){
+        String mess = "error";
+        session = HibernateSessionFactory.getSession();
+        try {
+            transaction = session.beginTransaction();
+            String hqlsql = "from Type as t where t.userName=:userName";
+            query = session.createQuery(hqlsql);
+            query.setParameter("userName", userName);
+            List<Type> typelists = query.list();
+            transaction.commit();
+            return typelists;
+        } catch (Exception e) {
+            message("selectTypes.error" + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+    //查询博主最前面的六个博客
     public List<Blog> selectBlogs(String userName){
         String mess = "error";
         session = HibernateSessionFactory.getSession();
         try {
             transaction = session.beginTransaction();
-            String hqlsql = "from Blog as b where b.userName=:userName";
+            String hqlsql = "from Blog as b where b.user.userName=:userName";
             query = session.createQuery(hqlsql).setFirstResult(0).setMaxResults(6);
             query.setParameter("userName", userName);
             List<Blog> slist = query.list();

@@ -22,6 +22,10 @@
             <result name="success">/visitor/blog/blogcomments.jsp</result>
             <result name="error">/error/error.jsp</result>
         </action>
+        <action name="commentBlogAction" class="cn.edu.ldu.action.visitor.LookBlogAction" method="commentBlog">
+            <result name="success" type="chain">lookCommentsAction</result>
+            <result name="error">/error/error.jsp</result>
+        </action>
     </package>
     <package name="user" extends="struts-default" namespace="/">
         <action name="userLoginAction" class="cn.edu.ldu.action.user.LoginRegisterAction" method="login">
@@ -76,6 +80,5 @@
             <result name="success">/user/comment/comments.jsp</result>
             <result name="error">/error/error.jsp</result>
         </action>
-
     </package>
 </struts>

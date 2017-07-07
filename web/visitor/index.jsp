@@ -56,16 +56,14 @@
                 <span class="left_icon"><img class="bio-text bio-icon-3" src="images/bio-icon-3.png" data-stellar-ratio="0.7" ></span>
                 <span class="right_content"><a class="bio-text bio-text-2" data-stellar-ratio="0.7" style="font-family: 'Comic Sans MS';font-size: 3em;color: #0C0C0C";>我是一名理工男，Major in <s:property value="#session.user.major"/></a></span>
             </div>
-
         </div>
-
     </div>
     <a class="button2 dark-button2 scroll-tip" style="background-position:0 -60px;" data-slide="3" title=""></a>
 </div>
 <div id="works" class="section-wrap section-works" data-slide="3" >
     <div class="section">
         <div class="works-content section-content">
-            <h1>前端作品</h1>
+            <h1>博客内容</h1>
             <div class="works-list clearfix">
                 <s:iterator value="#session.bloglists" begin="0" end="5">
                     <div class="works-item first fade fade2">
@@ -106,6 +104,8 @@
                 <div class="contact-ways fade fade1">
                     <h2>社交网络</h2>
                     <ul>
+                        <li>学号：20142203630</li>
+                        <li>姓名：贾金公</li>
                         <li>邮箱：jiajingong@163.com</li>
                         <li>Q Q ：739676343</li>
                         <li>CSDN：http://blog.csdn.net/iamjingong</li>
@@ -118,7 +118,7 @@
             </div>
             <div class="right fade fade3">
                 <h2>项目外包</h2>
-                <p>如果你有前端相关的需求，可以联系我做外包，目前我主要做：avatar</p>
+                <p>如果你有前端相关的需求，可以联系我</p>
                 <ul>
                     <li>网站布局设计及制作，网站页面制作。</li>
                     <li>根据需求，对网站前端进行修改和优化，或者转响应式处理。</li>

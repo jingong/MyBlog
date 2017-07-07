@@ -31,7 +31,6 @@ public class UpdateBlogAction extends ActionSupport{
     public String getUpdateBlog() throws Exception{
         BlogInfo info = new BlogInfo();
         blog = info.getBlog(id);//得到要更新的博客
-        System.out.println("要更新的博客id:" + blog.getId());
         if (blog != null) {
             mess = SUCCESS;
         }

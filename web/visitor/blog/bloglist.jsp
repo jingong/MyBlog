@@ -63,9 +63,7 @@
                 <div class="col-md-9">
                     <s:iterator value="#session.blogPage.bloglist">
                         <div class="blog-main">
-                            <div class="heading-blog">
-                                <s:property value="title"/>
-                            </div>
+                            <div class="heading-blog"><s:property value="title"/></div>
                             <a href="lookCommentsAction?id=<s:property value="id"/>">
                                 <img src="../../upload/jia/<s:property value="picture"/>" class="img-responsive img-rounded" />
                             </a>
@@ -75,19 +73,13 @@
                                 <span class="label label-danger"><s:property value="userName"/></span>
                             </span>
                             </div>
-                            <div class="blog-txt">
-                                <s:property value="content"/>
-                            </div>
+                            <div class="blog-txt"><s:property value="content"/></div>
                         </div>
                     </s:iterator>
-
                     <nav>
                         <ul class="pagination">
-                            <s:if test="#session.blogPage.currentPage == 1">
-                                首页&nbsp;&nbsp;&nbsp;上一页
-                            </s:if>
-                            <s:else>
-                                <a href="lookBlogByPageAction?page=1">首页</a>
+                            <s:if test="#session.blogPage.currentPage == 1">首页&nbsp;&nbsp;&nbsp;上一页</s:if>
+                            <s:else><a href="lookBlogByPageAction?page=1">首页</a>
                                 &nbsp;&nbsp;&nbsp;
                                 <a href="lookBlogByPageAction?page=<s:property value="#session.blogPage.currentPage - 1"/>">上一页</a>
                             </s:else>
@@ -96,45 +88,24 @@
                                 &nbsp;&nbsp;&nbsp;
                                 <a href="lookBlogByPageAction?page=<s:property value="#session.blogPage.totalPage"/>">尾页</a>
                             </s:if>
-                            <s:else>
-                                下一页&nbsp;&nbsp;&nbsp;尾页
-                            </s:else>
+                            <s:else>下一页&nbsp;&nbsp;&nbsp;尾页</s:else>
                         </ul>
                     </nav>
-                     <!--PAGING  END -->
                 </div>
                 <div class="col-md-3">
-
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <strong>博客分类</strong>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="badge"></span>
-                            <a href="lookBlogByType?tid=1&page=1">旅游博客</a>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="badge"></span>
-                            <a href="lookBlogByType?tid=2&page=1">技术博客</a>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="badge"></span>
-                            <a href="lookBlogByType?tid=3&page=1">心情博客</a>
-                        </li>
-                    </ul>
-                    <br />
-
+                        <li class="list-group-item"><strong>博客分类</strong></li>
+                        <s:iterator value="#session.typelist">
+                            <li class="list-group-item"><span class="badge"></span>
+                                <a href="lookBlogByType?tid=<s:property value="tid"/>&page=1"><s:property value="type"/></a>
+                            </li>
+                        </s:iterator>
+                    </ul><br />
                     <ul class="list-group">
-                        <li class="list-group-item">Advrtisements
-                        </li>
+                        <li class="list-group-item">Advrtisements</li>
                         <li class="list-group-item">
-                            <a href="#">
-                                <img src="../../assets/img/ad1.jpg" class="img-responsive" />
-                            </a>
-                            <br />
-                            <a href="#">
-                                <img src="../../assets/img/ad2.jpg" class="img-responsive" />
-                            </a>
+                            <a href="#"><img src="../../assets/img/ad1.jpg" class="img-responsive" /></a><br />
+                            <a href="#"><img src="../../assets/img/ad2.jpg" class="img-responsive" /></a>
                         </li>
                     </ul>
                     <br />

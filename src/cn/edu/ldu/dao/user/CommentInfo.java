@@ -122,4 +122,23 @@ public class CommentInfo {
             return null;
         }
     }
+
+    public String saveComment(Comment comment)
+    {
+        session = HibernateSessionFactory.getSession();
+        try
+        {
+            transaction = session.beginTransaction();
+            session.save(comment);
+            transaction.commit();
+            return "success";
+        }
+        catch (Exception e)
+        {
+            if(transaction != null)
+                transaction.rollback();
+            e.printStackTrace();
+            return "error";
+        }
+    }
 }

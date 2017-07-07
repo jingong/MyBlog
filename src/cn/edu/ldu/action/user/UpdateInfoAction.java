@@ -28,9 +28,7 @@ public class UpdateInfoAction extends ActionSupport implements SessionAware {
         UpdateUserInfo info = new UpdateUserInfo();
         int id = ((User)session.get("user")).getId();
         user.setId(id);
-        System.out.println("更新数据..." + id);
         mess = info.updateUser(user);
-        System.out.println("更新完成...");
         if (mess.equals(SUCCESS)){//如果数据更新成功，更新session里面保存的user
             session.put("user",user);
         }

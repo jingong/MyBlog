@@ -49,32 +49,24 @@
             <div class="col-md-10">
                 <img src="../../assets/img/clients.png" alt="" class="img-rounded img-responsive" />
             </div>
-
-
         </div>
     </div>
 </section>
-<!--SPONSORS SECTION END-->
 <hr />
 <section  >
     <div class="container">
         <div class="row">
             <div class="col-md-9" >
                 <div class="blog-main">
-                    <div class="heading-blog">
-                        <s:property value="blog.title"/>
-                    </div>
+                    <div class="heading-blog"><s:property value="blog.title"/></div>
                     <img src="../../upload/jia/<s:property value="blog.picture"/>" class="img-responsive img-rounded" />
                     <div class="blog-info">
                         <span class="label label-primary"><s:property value="blog.time"/></span>
                         <span class="label label-success"><s:property value="blog.type.type"/></span>
                         <span class="label label-danger"><s:property value="blog.userName"/></span>
                     </div>
-                    <div class="blog-txt">
-                        <s:property value="blog.content"/>
-                    </div>
+                    <div class="blog-txt"><s:property value="blog.content"/></div>
                 </div>
-                <!--BLOG MAIN SECTION END-->
                 <h3 ><strong>Recent Comments :</strong></h3>
                 <hr />
                 <ul class="media-list">
@@ -85,13 +77,30 @@
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><s:property value="userName"/></h4>
-                                <p>
-                                    <s:property value="content"/>
-                                </p>
+                                <p><s:property value="content"/></p>
                             </div>
                         </li>
                     </s:iterator>
                 </ul>
+                <hr />
+                <hr />
+                <div>
+                    <form action="commentBlogAction">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">发表评论：</h3>
+                            </div>
+                            <div class="panel-body">
+                                    <input type="text" name="content" class="form-control" placeholder="想说什么呀..." width="500" />
+                                    <input type="hidden" name="id" value="<s:property value="id"/>">
+                                    <hr />
+                                    <input type="submit" class="btn btn-info btn-sm btn-block" value="评论"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
             </div>
             <div class="col-md-3">
                 <br />
@@ -124,9 +133,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </section>

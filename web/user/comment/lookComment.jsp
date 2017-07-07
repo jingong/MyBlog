@@ -103,7 +103,6 @@
         <div class="panel-head"><strong class="icon-reorder">内容列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
         <div class="padding border-bottom">
             <ul class="search" style="padding-left:10px;">
-                <%--<li> <a class="button border-main icon-plus-square-o" href="addBlog.jsp">添加内容</a> </li>--%>
                 <li>
                     <input type="text" placeholder="请输入关键字(支持模糊查询)" name="keywords" value="<s:property value="keywords"/>" class="input" style="width:250px; line-height:17px;display:inline-block" />
                     <input type="submit" class="button border-main icon-search" value="搜索" onclick="lookComment()"/>
@@ -120,7 +119,7 @@
                 <th>博客标题</th>
                 <th>评论内容</th>
                 <th width="10%">评论时间</th>
-                <th width="200">操作</th>
+                <th width="100">操作</th>
             </tr>
             <volist name="list" id="vo">
                 <s:iterator value="#session.commentPageBean.clist" status="st">
@@ -130,7 +129,7 @@
                         <td><s:property value="blog.title" /></td>
                         <td><s:property value="content" /></td>
                         <td><s:property value="time" /></td>
-                        <td><div class="button-group"><a class="button border-main" href="getUpdateBlogAction?id=<s:property value="id"/>"><span class="icon-edit"></span>修改</a></div></td>
+                        <td><div class="button-group">...</div></td>
                     </tr>
                 </s:iterator>
                 <tr>

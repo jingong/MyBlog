@@ -64,7 +64,7 @@
                 <th>博客标题</th>
                 <th>评论内容</th>
                 <th width="10%">评论时间</th>
-                <th width="300"></th>
+                <th width="100"></th>
             </tr>
             <volist name="list" id="vo">
                 <s:iterator value="#session.pageBeanById.clist1" status="st">
@@ -74,7 +74,7 @@
                         <td><s:property value="blog.title" /></td>
                         <td><s:property value="content" /></td>
                         <td><s:property value="time" /></td>
-                        <td>...</td>
+                        <td><div class="button-group">...</div></td>
                     </tr>
                 </s:iterator>
                 <tr>

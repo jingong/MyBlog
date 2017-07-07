@@ -1,9 +1,6 @@
 package cn.edu.ldu.action.visitor;
 
-import cn.edu.ldu.POJO.Blog;
-import cn.edu.ldu.POJO.Skills;
-import cn.edu.ldu.POJO.User;
-import cn.edu.ldu.POJO.Visitor;
+import cn.edu.ldu.POJO.*;
 import cn.edu.ldu.dao.visitor.LoginRegisterInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
@@ -20,6 +17,15 @@ public class LoginRegisterAction extends ActionSupport implements SessionAware{
     private Map<String, Object> session;
     private List<Skills> slists;
     private List<Blog> bloglists;
+    private List<Type> typelist;
+
+    public List<Type> getTypelist() {
+        return typelist;
+    }
+
+    public void setTypelist(List<Type> typelist) {
+        this.typelist = typelist;
+    }
 
     public List<Blog> getBloglists() {
         return bloglists;
@@ -47,15 +53,19 @@ public class LoginRegisterAction extends ActionSupport implements SessionAware{
     //游客登录方法
     public String login(){
         LoginRegisterInfo info = new LoginRegisterInfo();
-        mess = info.selectVisitor(visitor);
-        if (mess.equals(SUCCESS)){
+        visitor = info.selectVisitor(visitor);
+        if (visitor != null){
+            mess = SUCCESS;
             User user = info.selectUser("jia");
             slists = info.selectSkills("jia");
             bloglists = info.selectBlogs("jia");
+            typelist = info.selectTypes("jia");
+            session.put("typelist",typelist);
             session.put("slist",slists);
             session.put("user",user);
             session.put("bloglists",bloglists);
             session.put("type",1);//登录成功时，把session保存的博客类型设置成1
+            session.put("visitor",visitor);
         }
         return mess;
     }

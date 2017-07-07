@@ -83,7 +83,7 @@
                     <label>作者：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input w50" name="blog.userName" value="<s:property value="blog.userName"/>"  />
+                    <input type="text" class="input w50" name="blog.user.userName" value="<s:property value="blog.user.userName"/>"  />
                     <div class="tips"></div>
                 </div>
             </div>
