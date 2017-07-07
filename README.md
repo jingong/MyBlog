@@ -33,7 +33,19 @@ BootStrap的使用、EasyUI的使用、<br>
 
 数据库设计：<br>
 <img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/1.png" /><br>
+<br><br>
 前端页面截图：<br>
+<img src="https://github.com/jingong/MyBlog/blob/master/screenshot/11.png" /><br>
+<img src="https://github.com/jingong/MyBlog/blob/master/screenshot/12.png" /><br>
+<img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/13.png" /><br>
+<img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/14.png" /><br>
+<img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/15.png" /><br>
+<img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/16.png" /><br>
+<img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/17.png" /><br>
+<img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/18.png" /><br>
+<br><br><br>
+
+后端页面截图：<br>
 <img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/2.png" /><br>
 <img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/3.png" /><br>
 <img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/4.png" /><br>
@@ -44,14 +56,6 @@ BootStrap的使用、EasyUI的使用、<br>
 <img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/9.png" /><br>
 <img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/10.png" /><br>
 
-后台截图：<br>
-<img src="https://github.com/jingong/MyBlog/blob/master/screenshot/11.png" /><br>
-<img src="https://github.com/jingong/MyBlog/blob/master/screenshot/12.png" /><br>
-<img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/13.png" /><br>
-<img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/14.png" /><br>
-<img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/15.png" /><br>
-<img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/16.png" /><br>
-<img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/17.png" /><br>
-<img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/18.png" /><br>
+
 
 
