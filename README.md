@@ -8,6 +8,8 @@
 3.博客浏览（主要部分，内容很多）<br>
 4.个人技能<br>
 5.博主联系<br>
+<br>
+<br>
 ###后台包括：<br>
 1.登录<br>
 2.个人中心（个人信息的查看、修改，登录密码修改）<br>
@@ -57,5 +59,7 @@ BootStrap的使用、EasyUI的使用、<br>
 <img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/10.png" /><br>
 
 
-
-
+<br>
+###作品做的不是很完美，为了学习框架而做的，有些地方可能比较乱，也没怎么整理。<br>
+这个博客系统的代码、数据库、文档、PPT本人都有。<br>
+如有疑问或者需要欢迎发邮件：jiajingong@163.com.<br>
