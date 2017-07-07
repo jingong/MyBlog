@@ -29,4 +29,7 @@ BootStrap的使用、EasyUI的使用、
 关于分页的PageBean的整体设计、博客管理页面多条信息同时删除的实现、
 进入评论区的设置、前端信息的滑动浏览设置、以及前端的弹出登录和注册，等等。
 
+
+数据库设计：
+<img width="700px" height="400px" src="https://github.com/jingong/MyBlog/blob/master/screenshot/1.png" />
 前端页面截图：
